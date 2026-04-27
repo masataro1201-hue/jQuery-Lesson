@@ -102,14 +102,14 @@
       $(function() {
         $('select').change(filterCategory);
         function filterCategory() {
-          var tagName = $(this).val();
-          if (tagName === 'all') {
+          var selectedCategory = $(this).val();
+          if (selectedCategory === 'all') {
             $('li').show();
             return;
           }
           $('li').each(function(index, element) {
-            var category = $(element).data('category-type');
-            if (tagName === category) {
+            var itemCategory = $(element).data('category-type');
+            if (selectedCategory === itemCategory) {
               $(element).show();
             } else {
               $(element).hide();
