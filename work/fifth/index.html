@@ -103,11 +103,13 @@
         $('select').change(tagCategory);
         function tagCategory() {
           var tagName = $(this).val();
+          if (tagName === 'all') {
+            $('li').show();
+            return;
+          }
           $('li').each(function(index, element) {
             var category = $(element).data('category-type');
-            if (tagName === 'all') {
-              $(element).show();
-            } else if (tagName === category) {
+            if (tagName === category) {
               $(element).show();
             } else {
               $(element).hide();
