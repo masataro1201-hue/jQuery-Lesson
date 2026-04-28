@@ -51,13 +51,14 @@
           url: 'https://pokeapi.co/api/v2/pokemon/' + pokemonId,
           method: 'GET',
         }).done(function (pokemonData) {
+          let pokemonImg = pokemonData.sprites.front_default;
           $.ajax({
             url: pokemonData.species.url,
             method: 'GET',
           }).done(function (pokemonNames) {
             $('#wrapper').html(encountHtml);
             $('.name').text(pokemonNames.names[0].name);
-            $('.img').attr('src', pokemonData.sprites.front_default);
+            $('.img').attr('src', pokemonImg);
             $('button').click(function () {
               $('#wrapper').html(
                 `
@@ -79,7 +80,8 @@
             url: 'https://pokeapi.co/api/v2/item/4',
             method: 'GET',
           }).done(function (pokemonBall) {
-            $('.img').attr('src', pokemonBall.sprites.default);
+            let pokemonBallImg = pokemonBall.sprites.default;
+            $('.img').attr('src', pokemonBallImg);
 
           }).fail(function () {
             alert('通信に失敗しました');
