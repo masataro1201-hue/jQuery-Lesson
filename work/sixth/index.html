@@ -55,9 +55,8 @@
             url: pokemonData.species.url,
             method: 'GET',
           }).done(function (pokemonNames) {
-            let pokemonName = pokemonNames.names[0];
             $('#wrapper').html(encountHtml);
-            $('.name').text(pokemonName.name);
+            $('.name').text(pokemonNames.names[0].name);
             $('.img').attr('src', pokemonData.sprites.front_default);
             $('button').click(function () {
               $('#wrapper').html(
