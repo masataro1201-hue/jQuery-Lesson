@@ -54,8 +54,8 @@
           $.ajax({
             url: pokemonData.species.url,
             method: 'GET',
-          }).done(function (pokemoName) {
-            let pokemonName = pokemoName.names[0];
+          }).done(function (pokemonNames) {
+            let pokemonName = pokemonNames.names[0];
             $('#wrapper').html(encountHtml);
             $('.name').text(pokemonName.name);
             $('.img').attr('src', pokemonData.sprites.front_default);
@@ -80,7 +80,6 @@
             url: 'https://pokeapi.co/api/v2/item/4',
             method: 'GET',
           }).done(function (pokemonBall) {
-            console.log(pokemonBall);
             $('.img').attr('src', pokemonBall.sprites.default);
 
           }).fail(function () {
