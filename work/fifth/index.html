@@ -108,6 +108,7 @@
             return;
           }
           $('li').each(function(index, element) {
+            console.log(element);
             var itemCategory = $(element).data('category-type');
             if (selectedCategory === itemCategory) {
               $(element).show();
